@@ -1591,43 +1591,556 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+  /* Layout & Container */
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .main-content {
+    padding: 1.75rem 0 2.5rem;
+  }
+
+  /* Header & Navigation */
+  .nav-container {
+    height: 68px;
+  }
+
+  .figma-brand-chip {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.82rem;
+    gap: 0.45rem;
+    max-width: 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-controls {
+    gap: 0.5rem;
+  }
+
+  .theme-btn,
+  .mobile-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
   .mobile-toggle {
     display: flex;
   }
 
   .nav-menu {
     position: fixed;
-    top: 76px;
+    top: 68px;
     left: 0;
     right: 0;
-    background: var(--bg-surface);
-    border-radius: 0;
-    border-bottom: 1px solid var(--border-accent);
+    background: rgba(10, 3, 4, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-top: none;
+    border-bottom: 2px solid var(--border-accent);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 0.75rem;
+    padding: 1.25rem 1rem 1.75rem;
+    gap: 0.5rem;
     display: none;
-    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
+  }
+
+  [data-theme="light"] .nav-menu {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
   .nav-menu.open {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    justify-content: flex-start;
+    min-height: 48px;
+  }
+
+  .nav-link.active {
+    box-shadow: 0 2px 14px var(--lava-glow);
+  }
+
+  /* Hero Section */
+  .figma-hero-stage {
+    gap: 2.25rem;
+    margin-bottom: 2.5rem;
   }
 
   .figma-display-title {
-    font-size: 2.85rem;
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    line-height: 1.08;
+    margin-bottom: 0.4rem;
   }
 
   .figma-display-subtitle {
-    font-size: 2rem;
+    font-size: clamp(1.65rem, 5.5vw, 2.15rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .figma-lead-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-profiles-box {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Profile Card on Mobile */
+  .figma-profile-card {
+    max-width: 100%;
+    margin: 0 auto;
+    animation: none;
+  }
+
+  .profile-card-banner {
+    height: 110px;
+  }
+
+  .profile-card-body {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .concentric-ripples {
+    width: 160px;
+    height: 160px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .avatar-wrapper {
+    margin-top: -55px;
+    margin-bottom: 1rem;
+  }
+
+  .avatar-img-circle {
+    width: 84px;
+    height: 84px;
+  }
+
+  .avatar-monogram {
+    font-size: 1.75rem;
+  }
+
+  .candidate-name {
+    font-size: 1.65rem;
+  }
+
+  .candidate-role {
+    font-size: 0.95rem;
+  }
+
+  .profile-skills-subcard {
+    padding: 1.25rem 1rem;
+  }
+
+  .skills-subcard-title {
+    font-size: 1.1rem;
+  }
+
+  /* Impact Metrics Banner */
+  .figma-metrics-banner {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .metrics-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .metrics-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .metrics-subtitle {
+    font-size: 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .metric-number {
+    font-size: 2.5rem;
+  }
+
+  .metric-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Shared Sections & Cards */
+  .card {
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .section-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .section-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Projects Filter & Grid */
+  .filter-container {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.75rem;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 0.5rem 1.15rem;
+    font-size: 0.85rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .project-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-date {
+    align-self: flex-start;
+  }
+
+  .project-desc {
+    font-size: 0.92rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Resume & Bio-Data Paper */
+  .resume-paper,
+  .biodata-paper {
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+  }
+
+  .resume-header,
+  .biodata-header {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .resume-name,
+  .biodata-title {
+    font-size: clamp(1.9rem, 7vw, 2.35rem);
+    line-height: 1.15;
+  }
+
+  .resume-role,
+  .biodata-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .resume-contact-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  .resume-section {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .resume-section-heading {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .resume-item {
+    margin-bottom: 1.25rem;
+  }
+
+  .resume-item-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .resume-item-title {
+    font-size: 1.05rem;
+  }
+
+  .resume-item-date {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.55rem;
+  }
+
+  .resume-item-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .resume-item-detail,
+  .resume-list-item {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .resume-list-item {
+    padding-left: 1.25rem;
+  }
+
+  /* Bio-Data Grid & Table */
+  .biodata-grid {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+    column-gap: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .biodata-label {
+    color: var(--lava-bright);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .biodata-val {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .data-table-wrapper {
+    margin: 1.25rem 0;
+    border-radius: var(--radius-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .declaration-card {
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .declaration-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .signature-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .sig-name {
+    font-size: 1.3rem;
+  }
+
+  /* Contact Page */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .contact-info-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-channel {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .contact-meta p,
+  .contact-meta a {
+    font-size: 0.98rem;
+    word-break: break-word;
+  }
+
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on iOS/Android */
+    padding: 0.8rem 1rem;
+  }
+
+  /* Toast Notification */
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.25rem;
+    align-items: center;
+  }
+
+  .toast {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
+   Small Mobile Optimization (Screens <= 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .nav-container {
+    height: 64px;
+  }
+
+  .figma-brand-chip {
+    max-width: 155px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  .figma-display-title {
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .figma-display-subtitle {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    min-height: 48px;
   }
 
   .metrics-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .metric-col {
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .metric-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .metric-number {
+    font-size: 2.25rem;
   }
 
   .resume-paper,
   .biodata-paper {
-    padding: 2rem 1.5rem;
+    padding: 1.35rem 0.95rem;
+  }
+
+  .card {
+    padding: 1.35rem 1rem;
+  }
+
+  .project-card {
+    padding: 1.25rem 1rem;
   }
 }
+

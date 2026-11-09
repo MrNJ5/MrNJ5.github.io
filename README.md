@@ -1,31 +1,19 @@
-# Mohammed Najaf - Personal Website (`mohammednajaf.resume`)
+# Mohammed Najaf - Personal Portfolio & Resume
 
-A modern, high-impact multi-page portfolio, official **Resume**, and formal **Bio-Data** for **Mohammed Najaf** (Software Engineer). Built with the Figma UI Designer Resume Template aesthetic in a **Lava Red (#ff1e27)** and **Deep Volcanic Black (#000000)** theme with fluid animations.
-
----
-
-## 🌐 Domain & Live Deployment
-* **Branded Domain**: `mohammednajaf.resume`
-* **Live Cloud Deployment**: [https://solid-hub-sk54g3j.shipstatic.com](https://solid-hub-sk54g3j.shipstatic.com)
-* **Resume**: [https://solid-hub-sk54g3j.shipstatic.com/resume.html](https://solid-hub-sk54g3j.shipstatic.com/resume.html)
-* **Bio-Data**: [https://solid-hub-sk54g3j.shipstatic.com/biodata.html](https://solid-hub-sk54g3j.shipstatic.com/biodata.html)
-* **Projects**: [https://solid-hub-sk54g3j.shipstatic.com/projects.html](https://solid-hub-sk54g3j.shipstatic.com/projects.html)
-* **Contact**: [https://solid-hub-sk54g3j.shipstatic.com/contact.html](https://solid-hub-sk54g3j.shipstatic.com/contact.html)
+A modern, high-impact multi-page portfolio, official **Resume**, and formal **Bio-Data** for **Mohammed Najaf** (Software Engineer). Built with the Figma UI Designer Resume Template aesthetic in a **Lava Red (#ff1e27)** and **Deep Volcanic Black (#000000)** theme with fluid animations. Fully responsive for mobile and desktop screens.
 
 ---
 
-## ⚙️ How to Connect `mohammednajaf.resume` via DNS
-The project includes a standard [CNAME](file:///c:/Regret/Project/CNAME) file containing `mohammednajaf.resume`.
+## 🌐 Live Deployment (GitHub Pages)
+* **Home / Portfolio**: [https://mrnj5.github.io/portfolio/](https://mrnj5.github.io/portfolio/)
+* **Resume**: [https://mrnj5.github.io/portfolio/resume.html](https://mrnj5.github.io/portfolio/resume.html)
+* **Bio-Data**: [https://mrnj5.github.io/portfolio/biodata.html](https://mrnj5.github.io/portfolio/biodata.html)
+* **Projects**: [https://mrnj5.github.io/portfolio/projects.html](https://mrnj5.github.io/portfolio/projects.html)
+* **Contact**: [https://mrnj5.github.io/portfolio/contact.html](https://mrnj5.github.io/portfolio/contact.html)
 
-To point your custom domain `mohammednajaf.resume` to your cloud host:
-1. **GitHub Pages / Netlify / Cloudflare / Vercel**:
-   * Add a `CNAME` record in your DNS provider:
-     * **Host / Name**: `@` or `mohammednajaf.resume`
-     * **Value / Target**: Your cloud deployment target (e.g., `solid-hub-sk54g3j.shipstatic.com` or `<username>.github.io`)
-2. **Local Hosts File (for instant local preview of http://mohammednajaf.resume)**:
-   * In Windows `C:\Windows\System32\drivers\etc\hosts`:
-     ```text
-     127.0.0.1 mohammednajaf.resume
-     ```
-   * Run a local server on port 80: `python -m http.server 80` in `c:\Regret\Project`.
-   * Open `http://mohammednajaf.resume` in your browser!
+---
+
+## 📱 Mobile-Optimized Design
+* **Touch-Friendly**: 48px tap targets, optimized drawer navigation with backdrop blur.
+* **Fluid Typography**: Dynamic sizing adapting smoothly from 320px mobile up to 4K displays.
+* **Responsive Component Grid**: Single-column and two-column adaptations for metrics, projects, bio-data tables, and contact form.

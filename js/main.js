@@ -105,7 +105,16 @@
       document.addEventListener('click', function(e) {
         if (!e.target.closest('.header')) {
           navMenu.classList.remove('open');
+          mobileBtn.setAttribute('aria-expanded', false);
         }
+      });
+
+      // Close mobile drawer when a nav link is selected
+      navMenu.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('open');
+          mobileBtn.setAttribute('aria-expanded', false);
+        });
       });
     }
   });
