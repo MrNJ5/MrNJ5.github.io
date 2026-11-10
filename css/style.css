@@ -1199,6 +1199,29 @@ textarea.form-control {
   border-left: 3px solid var(--lava-primary);
 }
 
+.toast-error {
+  border-left: 3px solid #ef4444;
+}
+
+.toast-info {
+  border-left: 3px solid #3b82f6;
+}
+
+.spinner-icon {
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */

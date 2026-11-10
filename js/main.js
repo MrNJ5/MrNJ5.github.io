@@ -181,9 +181,17 @@
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
+    
+    let iconSvg = '<polyline points="20 6 9 17 4 12"></polyline>';
+    if (type === 'error') {
+      iconSvg = '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>';
+    } else if (type === 'info') {
+      iconSvg = '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>';
+    }
+
     toast.innerHTML = `
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="20 6 9 17 4 12"></polyline>
+        ${iconSvg}
       </svg>
       <span>${message}</span>
     `;
@@ -195,7 +203,7 @@
     setTimeout(() => {
       toast.classList.remove('show');
       setTimeout(() => toast.remove(), 300);
-    }, 3500);
+    }, 4500);
   }
 
   window.showToast = showToast;
@@ -262,39 +270,114 @@
   });
 
   // ==========================================
-  // 9. Contact Form Handling
+  // 9. Contact Form Handling (Real Transmission via FormSubmit)
   // ==========================================
   document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
+      // Check for success redirect from fallback POST
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('status') === 'success') {
+        showToast('Thank you! Your message was transmitted successfully.', 'success');
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      }
+
+      contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const name = (document.getElementById('contact-name')?.value || '').trim();
-        const email = (document.getElementById('contact-email')?.value || '').trim();
-        const message = (document.getElementById('contact-message')?.value || '').trim();
+        const nameInput = document.getElementById('contact-name');
+        const emailInput = document.getElementById('contact-email');
+        const subjectInput = document.getElementById('contact-subject');
+        const messageInput = document.getElementById('contact-message');
         const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-        if (!name || !email || !message) {
-          showToast('Please fill in all required fields.', 'error');
+        const name = (nameInput?.value || '').trim();
+        const email = (emailInput?.value || '').trim();
+        const subject = (subjectInput?.value || '').trim();
+        const message = (messageInput?.value || '').trim();
+
+        if (!name) {
+          showToast('Please provide your name.', 'error');
+          nameInput?.focus();
+          return;
+        }
+
+        if (!email) {
+          showToast('Please provide your email address.', 'error');
+          emailInput?.focus();
           return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
           showToast('Please enter a valid email address.', 'error');
+          emailInput?.focus();
           return;
         }
 
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Transmitting message...';
+        if (!message) {
+          showToast('Please enter your message.', 'error');
+          messageInput?.focus();
+          return;
+        }
 
-        setTimeout(function() {
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="spinner-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+          </svg>
+          <span>Transmitting Message...</span>
+        `;
+
+        try {
+          const endpoint = 'https://formsubmit.co/ajax/mohammednajaf.nj5@gmail.com';
+          const payload = {
+            name: name,
+            email: email,
+            _subject: subject || `Portfolio Inquiry from ${name}`,
+            message: message,
+            _template: 'table',
+            _captcha: 'false'
+          };
+
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.ok) {
+            submitBtn.innerHTML = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Message Transmitted!</span>
+            `;
+            showToast('Thank you, ' + name + '! Your message was delivered to Mohammed Najaf.', 'success');
+            contactForm.reset();
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnHtml;
+            }, 3000);
+          } else {
+            throw new Error('Endpoint returned HTTP ' + response.status);
+          }
+        } catch (err) {
+          console.warn('Direct transmission failed, redirecting to mailto fallback:', err);
+          submitBtn.innerHTML = originalBtnHtml;
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-          contactForm.reset();
-          showToast('Thank you, ' + name + '! Your message was sent successfully.');
-        }, 900);
+          showToast('Transmission fallback: Launching email client...', 'info');
+
+          // Fallback to mailto link
+          const mailtoSubject = encodeURIComponent(subject || `Portfolio Contact from ${name}`);
+          const mailtoBody = encodeURIComponent(`Sender: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+          window.location.href = `mailto:mohammednajaf.nj5@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+        }
       });
     }
   });
