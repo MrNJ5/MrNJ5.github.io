@@ -230,23 +230,36 @@
   });
 
   // ==========================================
-  // 8. Project Category Filter (jQuery)
+  // 8. Project Category Filter (Vanilla JS with Emil Kowalski transitions)
   // ==========================================
-  if (window.jQuery) {
-    jQuery(document).on('click', '.filter-btn', function() {
-      const $ = jQuery;
-      const filter = $(this).data('filter');
-      $('.filter-btn').removeClass('active');
-      $(this).addClass('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-      if (filter === 'all') {
-        $('.project-card').fadeIn(250);
-      } else {
-        $('.project-card').hide();
-        $(`.project-card[data-category*="${filter}"]`).fadeIn(250);
-      }
+    filterButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const filter = btn.getAttribute('data-filter');
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        projectCards.forEach(function(card) {
+          const category = card.getAttribute('data-category') || '';
+          if (filter === 'all' || category.includes(filter)) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            requestAnimationFrame(() => {
+              card.style.transition = 'opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1)';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
-  }
+  });
 
   // ==========================================
   // 9. Contact Form Handling

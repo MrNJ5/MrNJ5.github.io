@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammed Najaf | Portfolio</title>
-  <meta name="description" content="Software Engineer portfolio and resume of Mohammed Najaf, built using the Figma UI Designer Resume Template.">
+  <title>Mohammed Najaf — Software Engineer</title>
+  <meta name="description" content="Portfolio of Mohammed Najaf, Computer Science Engineer specializing in Deep Learning, Assistive AI, Embedded Systems, and Web Engineering.">
+  <meta name="page-type" content="portfolio">
+  <meta name="site-kind" content="software">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,31 +14,39 @@
   <!-- Site Navigation Header -->
   <header class="header">
     <div class="container nav-container">
-      <a href="index.html" class="logo-group">
+      <a href="index.html" class="logo-group" aria-label="Mohammed Najaf Home">
         <span class="figma-brand-chip">
           <span class="figma-brand-dot"></span>
           <span>Mohammed Najaf</span>
         </span>
       </a>
 
-      <nav>
+      <nav aria-label="Primary Navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="resume.html" class="nav-link">Resume</a></li>
           <li><a href="biodata.html" class="nav-link">Bio-Data</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-controls">
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -46,183 +56,148 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Stage -->
   <main class="main-content">
     <div class="container">
       
-      <!-- Figma Hero Stage: Split Asymmetric Grid -->
+      <!-- Hero Section (Hallmark #12 & #13: Clear, concise, visible without scroll) -->
       <section class="figma-hero-stage">
-        
-        <!-- Left Column: Giant Grotesque Typography & Statement -->
         <div class="figma-hero-left">
-          <div class="figma-meta-header">
-            <span class="meta-chip">Portfolio & Curriculum Vitae</span>
-            <span style="color: var(--text-dim);">/</span>
-            <span style="font-size: 0.85rem; color: var(--text-muted);">Software Engineer</span>
+          
+          <div class="status-indicator-badge">
+            <span class="status-pulse-dot"></span>
+            <span>Available for Engineering Roles & Projects</span>
           </div>
 
-          <h1 class="figma-display-title">Resume</h1>
-          <h2 class="figma-display-subtitle">Software Engineer</h2>
+          <h1 class="hero-headline">
+            Engineering intelligent systems <span class="hero-headline-accent">from silicon to software.</span>
+          </h1>
 
-          <p class="figma-lead-text">
-            A Software Engineer passionate about blending technology and creativity. From building an RC car with Arduino to exploring UI/UX design and web development, I'm a hands-on learner. My skills span Python, C, cloud platforms, and more. I'm also a travel consultant and computer technician, highlighting my diverse interests and practical problem-solving abilities.
+          <p class="hero-lead">
+            I am Mohammed Najaf, a Computer Science Engineer crafting deep learning models, assistive computer vision interfaces, and embedded robotics. Currently researching flood prediction AI at P.A. College of Engineering.
           </p>
 
-          <!-- Product Profiles (from Figma Template) -->
-          <div class="product-profiles-box">
-            <div class="profiles-title">Core Engineering Profiles</div>
-            <ul class="profiles-list">
-              <li class="profile-item">Deep Learning & AI System Developer</li>
-              <li class="profile-item">Assistive Tech Engineer (Computer Vision & ISL)</li>
-              <li class="profile-item">Full-Stack Web Application Developer</li>
-              <li class="profile-item">Embedded Robotics Builder (Arduino / IoT)</li>
-            </ul>
-          </div>
-
-          <!-- Hero Action CTA Buttons -->
           <div class="hero-cta-group">
-            <a href="resume.html" class="btn btn-lava">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
+            <a href="projects.html" class="btn btn-primary">
+              <span>View Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-              View Official Resume
             </a>
-            <a href="biodata.html" class="btn btn-glass">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="8.5" cy="7.5" r="4"></circle>
-              </svg>
-              Inspect Formal Bio-Data
+            <a href="resume.html" class="btn btn-secondary">
+              <span>Curriculum Vitae</span>
             </a>
-            <a href="projects.html" class="btn btn-outline">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-              </svg>
-              Explore Projects
+            <a href="contact.html" class="btn btn-outline">
+              <span>Get in Touch</span>
             </a>
+          </div>
+
+          <div class="hero-specs-row">
+            <div class="hero-spec-item">
+              Degree: <strong>B.E. Computer Science</strong>
+            </div>
+            <div class="hero-spec-item">
+              Academic Score: <strong>8.5 CGPA</strong>
+            </div>
+            <div class="hero-spec-item">
+              Location: <strong>Kasaragod, Kerala</strong>
+            </div>
           </div>
         </div>
 
-        <!-- Right Column: Iconic Figma Profile Card -->
-        <div class="figma-profile-card">
-          <!-- Sunset Gradient Mesh Banner -->
-          <div class="profile-card-banner"></div>
-
-          <!-- Concentric Ripple Overlay (SVG) -->
-          <svg class="concentric-ripples" viewBox="0 0 200 200" fill="none" stroke="var(--lava-primary)" stroke-width="1.2">
-            <circle cx="100" cy="100" r="25" stroke-dasharray="3 3"/>
-            <circle cx="100" cy="100" r="45"/>
-            <circle cx="100" cy="100" r="65" stroke-dasharray="4 4"/>
-            <circle cx="100" cy="100" r="85"/>
-            <circle cx="100" cy="100" r="105"/>
-          </svg>
-
-          <!-- Card Content -->
-          <div class="profile-card-body">
-            
-            <div class="avatar-wrapper">
-              <div class="avatar-img-circle">
-                <span class="avatar-monogram">MN</span>
+        <!-- Right Column: Interactive Developer Signature Card -->
+        <div class="figma-hero-right">
+          <div class="hero-signature-card">
+            <div class="signature-card-header">
+              <div class="terminal-title-bar">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-filename">najaf_core.py</span>
               </div>
-              <span class="avatar-status-badge" title="Open to opportunities"></span>
+              <span class="pill-tag pill-tag-lava">Python 3.14</span>
             </div>
 
-            <h3 class="candidate-name">Mohammed Najaf</h3>
-            <div class="candidate-role">
-              <span>Software Engineer</span>
-              <span style="color: var(--lava-bright); font-size: 0.8rem;">• B.E. CSE</span>
+            <div class="code-preview-block">
+              <span class="code-keyword">class</span> <span class="code-fn">Engineer</span>:<br>
+              &nbsp;&nbsp;name = <span class="code-str">"Mohammed Najaf"</span><br>
+              &nbsp;&nbsp;domains = [<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Deep Learning & AI"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Computer Vision"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Embedded IoT (Arduino)"</span><br>
+              &nbsp;&nbsp;]<br>
+              &nbsp;&nbsp;academics = {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"college"</span>: <span class="code-str">"PACE Mangalore"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"cgpa"</span>: <span class="code-keyword">8.5</span><br>
+              &nbsp;&nbsp;}<br>
+              <br>
+              <span class="code-comment"># Active Research Focus:</span><br>
+              <span class="code-keyword">def</span> <span class="code-fn">current_mission</span>():<br>
+              &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-str">"Early Disaster Warning AI"</span>
             </div>
 
-            <div class="candidate-location">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Bendichal North, Kasaragod, Kerala 🇮🇳</span>
-            </div>
-
-            <!-- Skills Sub-Card (from Figma Template) -->
-            <div class="profile-skills-subcard">
-              <div class="skills-subcard-title">Skills & Technologies</div>
-              <div class="skills-pills-wrap">
-                <span class="pill-tag pill-tag-orange">Deep Learning</span>
-                <span class="pill-tag pill-tag-orange">Python</span>
-                <span class="pill-tag pill-tag-orange">Computer Vision</span>
-                <span class="pill-tag pill-tag-lava">C & Java</span>
-                <span class="pill-tag pill-tag-lava">HTML / CSS</span>
-                <span class="pill-tag pill-tag-lava">JavaScript</span>
-                <span class="pill-tag pill-tag-orange">Arduino / IoT</span>
-                <span class="pill-tag pill-tag-lava">VS Code</span>
-                <span class="pill-tag pill-tag-orange">UI/UX Design</span>
-                <span class="pill-tag pill-tag-lava">Problem Solving</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ==========================================================================
-           Impact Metrics Banner (Inspired by Figma Template:
-           "Design 6x faster. Save hours with our components / 80% / 50% / 3x / 60%")
-           ========================================================================== -->
-      <section class="figma-metrics-banner">
-        <div class="metrics-header">
-          <div class="metrics-tag">Track Record & Academic Excellence</div>
-          <h2 class="metrics-title">Build faster. Innovate with precision.</h2>
-          <p class="metrics-subtitle">Proven technical execution across machine intelligence, web architectures, and embedded electronics.</p>
-        </div>
-
-        <div class="metrics-grid">
-          <!-- Stat 1 -->
-          <div class="metric-col">
-            <div class="metric-number">8.5</div>
-            <div class="metric-desc">
-              <strong>Engineering CGPA</strong><br>
-              P.A. College of Engineering (B.E. Computer Science 2024 - 2028).
-            </div>
-          </div>
-
-          <!-- Stat 2 -->
-          <div class="metric-col">
-            <div class="metric-number">3+</div>
-            <div class="metric-desc">
-              <strong>Major AI & Web Projects</strong><br>
-              Disaster Management, Sign Language Translator & Nex Move bus portal.
-            </div>
-          </div>
-
-          <!-- Stat 3 -->
-          <div class="metric-col">
-            <div class="metric-number">3</div>
-            <div class="metric-desc">
-              <strong>Industry Certifications</strong><br>
-              ComedKares RC Car, Energy Swaraj Foundation, and Edu Pyramids C.
-            </div>
-          </div>
-
-          <!-- Stat 4 -->
-          <div class="metric-col">
-            <div class="metric-number">3</div>
-            <div class="metric-desc">
-              <strong>Fluent Languages</strong><br>
-              High-proficiency communication in English, Hindi, and Malayalam.
+            <div class="signature-pills">
+              <span class="pill-tag pill-tag-lava">Python</span>
+              <span class="pill-tag pill-tag-lava">C / C++</span>
+              <span class="pill-tag pill-tag-lava">Java</span>
+              <span class="pill-tag pill-tag-orange">OpenCV</span>
+              <span class="pill-tag pill-tag-orange">Arduino</span>
+              <span class="pill-tag pill-tag-lava">Web APIs</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Featured Project Spotlights -->
-      <section style="margin-bottom: 3rem;">
+      <!-- Section 1: Verified Credentials Matrix (Authentic Facts Only) -->
+      <section class="section-wrapper">
         <div class="section-header">
-          <h2 class="section-title">Selected Innovations</h2>
-          <a href="projects.html" class="btn btn-glass" style="font-size: 0.85rem; padding: 0.5rem 1.25rem;">View All Projects &rarr;</a>
+          <div>
+            <h2 class="section-title">Academic & Professional Foundation</h2>
+            <p class="section-subtitle">Verified educational credentials and accredited technical training.</p>
+          </div>
+        </div>
+
+        <div class="credentials-grid">
+          <div class="credential-card">
+            <div class="credential-score">8.5</div>
+            <h3 class="credential-title">B.E. Computer Science</h3>
+            <p class="credential-institution">
+              P.A. College of Engineering (2024 - 2028). Core coursework in algorithms, data structures, and intelligent systems.
+            </p>
+          </div>
+
+          <div class="credential-card">
+            <div class="credential-score">70%</div>
+            <h3 class="credential-title">High School (PCMB Science)</h3>
+            <p class="credential-institution">
+              Apsara Public School (2022 - 2024). Physics, Chemistry, Mathematics, and Biology foundation.
+            </p>
+          </div>
+
+          <div class="credential-card">
+            <div class="credential-score">3+</div>
+            <h3 class="credential-title">Accredited Certifications</h3>
+            <p class="credential-institution">
+              ComedKares (Arduino Robotics), Energy Swaraj Foundation (Energy Literacy), and Edu Pyramids (C Systems Programming).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Selected Engineering Projects -->
+      <section class="section-wrapper">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Featured Engineering Projects</h2>
+            <p class="section-subtitle">Real-world AI systems, computer vision models, and full-stack solutions.</p>
+          </div>
+          <a href="projects.html" class="btn btn-secondary">
+            <span>View All Projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
 
         <div class="projects-grid">
@@ -230,16 +205,16 @@
           <article class="project-card">
             <div class="project-card-header">
               <h3 class="project-title">Disaster Management System using Deep Learning</h3>
-              <span class="project-date">2026 - Now</span>
+              <span class="project-date">2026 - Present</span>
             </div>
-            <div class="project-role">Mini Project - Lead Developer</div>
+            <div class="project-role-badge">Lead Developer · Academic Research</div>
             <p class="project-desc">
-              An AI-powered early warning and disaster management system designed to predict regional floods and landslides and coordinate timely alerts.
+              An AI-powered early-warning disaster response framework designed to detect anomalies in meteorological and geographical patterns to forecast regional floods and landslides for civil protection agencies.
             </p>
             <div class="project-tags">
               <span class="pill-tag pill-tag-lava">Deep Learning</span>
               <span class="pill-tag pill-tag-lava">Python</span>
-              <span class="pill-tag pill-tag-orange">Early Alert AI</span>
+              <span class="pill-tag pill-tag-orange">Predictive AI</span>
             </div>
           </article>
 
@@ -247,15 +222,15 @@
           <article class="project-card">
             <div class="project-card-header">
               <h3 class="project-title">Indian Sign Language to Speech Converter</h3>
-              <span class="project-date">2026 - Now</span>
+              <span class="project-date">2026 - Present</span>
             </div>
-            <div class="project-role">Mini Project - Lead Developer</div>
+            <div class="project-role-badge">Lead Developer · Assistive Tech</div>
             <p class="project-desc">
-              A real-time assistive communication tool that captures Indian Sign Language (ISL) hand gestures via webcam and translates them into spoken audio.
+              Real-time assistive communication platform utilizing computer vision hand gesture tracking to capture Indian Sign Language (ISL) motions via camera feed and synthesize instant vocal audio output.
             </p>
             <div class="project-tags">
-              <span class="pill-tag pill-tag-orange">Computer Vision</span>
-              <span class="pill-tag pill-tag-lava">Python</span>
+              <span class="pill-tag pill-tag-lava">Computer Vision</span>
+              <span class="pill-tag pill-tag-lava">OpenCV</span>
               <span class="pill-tag pill-tag-orange">Speech Synthesis</span>
             </div>
           </article>
@@ -263,34 +238,112 @@
           <!-- Project 3 -->
           <article class="project-card">
             <div class="project-card-header">
-              <h3 class="project-title">Bus Reservation & Tracking System (Nex Move)</h3>
+              <h3 class="project-title">Bus Reservation & Fleet Tracking System</h3>
               <span class="project-date">2025 - 2026</span>
             </div>
-            <div class="project-role">Group Project - Nex Move</div>
+            <div class="project-role-badge">Full-Stack Developer · Group Project (Nex Move)</div>
             <p class="project-desc">
-              A full-stack web application for seamless bus route discovery, real-time seat booking, and schedule tracking.
+              A scalable web application featuring real-time seat inventory reservation, route coordination, and live tracking to streamline regional public transportation management.
             </p>
             <div class="project-tags">
-              <span class="pill-tag pill-tag-lava">Full-Stack Web</span>
-              <span class="pill-tag pill-tag-lava">HTML / CSS / JS</span>
-              <span class="pill-tag pill-tag-orange">Live Route Tracking</span>
+              <span class="pill-tag pill-tag-lava">Web Architecture</span>
+              <span class="pill-tag pill-tag-orange">Database</span>
+              <span class="pill-tag pill-tag-lava">API Design</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <h3 class="project-title">Autonomous RC Vehicle with Microcontroller</h3>
+              <span class="project-date">ComedKares</span>
+            </div>
+            <div class="project-role-badge">Hardware & Embedded Systems Developer</div>
+            <p class="project-desc">
+              Custom-engineered radio-controlled vehicle built on Arduino architecture, incorporating sensor integration, motor driver calibration, and wireless command reception.
+            </p>
+            <div class="project-tags">
+              <span class="pill-tag pill-tag-lava">Arduino</span>
+              <span class="pill-tag pill-tag-lava">C / C++</span>
+              <span class="pill-tag pill-tag-orange">Robotics</span>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- Quick Action Card -->
-      <section class="card" style="text-align: center; border-color: var(--border-accent);">
-        <h2 style="font-family: var(--font-display); font-size: 1.85rem; margin-bottom: 0.5rem; color: var(--text-primary);">
-          Explore Full Professional Dossier
+      <!-- Section 3: Technical Capabilities -->
+      <section class="section-wrapper">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Technical Capabilities</h2>
+            <p class="section-subtitle">Proficiencies developed across software engineering and practical hardware domains.</p>
+          </div>
+        </div>
+
+        <div class="credentials-grid">
+          <div class="credential-card">
+            <h3 class="credential-title">Software & Languages</h3>
+            <p class="credential-institution" style="margin-bottom: 1rem;">
+              Core programming competencies across compiled, interpreted, and web development stacks.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+              <span class="pill-tag pill-tag-lava">Python</span>
+              <span class="pill-tag pill-tag-lava">C</span>
+              <span class="pill-tag pill-tag-lava">Java</span>
+              <span class="pill-tag pill-tag-orange">HTML5</span>
+              <span class="pill-tag pill-tag-orange">CSS3</span>
+              <span class="pill-tag pill-tag-orange">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="credential-card">
+            <h3 class="credential-title">AI & System Domains</h3>
+            <p class="credential-institution" style="margin-bottom: 1rem;">
+              Specialized investigation into neural networks, computer vision, and assistive human-computer interaction.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+              <span class="pill-tag pill-tag-lava">Deep Learning</span>
+              <span class="pill-tag pill-tag-lava">Computer Vision</span>
+              <span class="pill-tag pill-tag-orange">Sensor Fusion</span>
+              <span class="pill-tag pill-tag-orange">Cloud Platforms</span>
+            </div>
+          </div>
+
+          <div class="credential-card">
+            <h3 class="credential-title">Hardware & Practical Skills</h3>
+            <p class="credential-institution" style="margin-bottom: 1rem;">
+              Hands-on electronics, computer hardware maintenance, and international communication fluency.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+              <span class="pill-tag pill-tag-lava">Hardware Repair</span>
+              <span class="pill-tag pill-tag-lava">Arduino IDE</span>
+              <span class="pill-tag pill-tag-orange">English (Fluent)</span>
+              <span class="pill-tag pill-tag-orange">Hindi (Fluent)</span>
+              <span class="pill-tag pill-tag-orange">Malayalam</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Direct Collaboration CTA -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 3rem 2rem; text-align: center; box-shadow: var(--shadow-md);">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Interested in Collaborating?
         </h2>
-        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.75rem;">
-          Access the downloadable, print-optimized resume, review comprehensive academic records on the Bio-Data page, or get in touch.
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 1.75rem; line-height: 1.6;">
+          Whether for engineering internships, technical collaborations, or consulting inquiries, feel free to reach out directly.
         </p>
-        <div class="hero-cta-group" style="justify-content: center;">
-          <a href="resume.html" class="btn btn-lava">Open Official Resume</a>
-          <a href="biodata.html" class="btn btn-glass">Open Formal Bio-Data</a>
-          <a href="contact.html" class="btn btn-outline">Get In Touch</a>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.85rem;">
+          <a href="contact.html" class="btn btn-primary">
+            <span>Send Message</span>
+          </a>
+          <button class="btn btn-secondary btn-copy" data-copy-text="mohammednajaf.nj5@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Email</span>
+          </button>
         </div>
       </section>
 
@@ -303,17 +356,14 @@
       <p>&copy; 2026 Mohammed Najaf. All rights reserved.</p>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="biodata.html">Bio-Data</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bio-Data | Mohammed Najaf</title>
-  <meta name="description" content="Formal Bio-Data of Mohammed Najaf. Comprehensive personal particulars, academic qualifications, technical proficiencies, and declaration.">
+  <title>Bio-Data — Mohammed Najaf</title>
+  <meta name="description" content="Formal Bio-Data of Mohammed Najaf. Personal particulars, academic qualifications, technical proficiencies, and official declaration.">
+  <meta name="page-type" content="biodata">
+  <meta name="site-kind" content="software">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,31 +14,39 @@
   <!-- Site Navigation Header -->
   <header class="header">
     <div class="container nav-container">
-      <a href="index.html" class="logo-group">
+      <a href="index.html" class="logo-group" aria-label="Mohammed Najaf Home">
         <span class="figma-brand-chip">
           <span class="figma-brand-dot"></span>
           <span>Mohammed Najaf</span>
         </span>
       </a>
 
-      <nav>
+      <nav aria-label="Primary Navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="resume.html" class="nav-link">Resume</a></li>
           <li><a href="biodata.html" class="nav-link active">Bio-Data</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-controls">
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        <button id="theme-toggle" class="theme-btn" aria-label="Switch Theme" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
         </button>
-        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -46,27 +56,27 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Stage -->
   <main class="main-content">
     <div class="container">
       
       <!-- Bio-Data Action Toolbar (Hidden during print) -->
       <div class="section-header no-print">
         <div>
-          <h1 class="section-title">Formal Bio-Data</h1>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Detailed personal records, educational qualifications & background declaration</p>
+          <h1 class="section-title">Curriculum Vitae / Bio-Data</h1>
+          <p class="section-subtitle">Formal personal, educational, and professional records document.</p>
         </div>
         <div class="hero-cta-group">
-          <button class="btn btn-lava btn-print" title="Print or Save Bio-Data as PDF">
+          <button class="btn btn-primary btn-print" title="Print document or generate PDF">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 6 2 18 2 18 9"></polyline>
               <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
               <rect x="6" y="14" width="12" height="8"></rect>
             </svg>
-            Print Bio-Data
+            <span>Print Bio-Data</span>
           </button>
-          <a href="resume.html" class="btn btn-glass">
-            View Resume Format &rarr;
+          <a href="resume.html" class="btn btn-secondary">
+            <span>Switch to Resume &rarr;</span>
           </a>
         </div>
       </div>
@@ -76,13 +86,13 @@
         
         <!-- Header -->
         <header class="biodata-header">
-          <h1 class="biodata-title">BIO-DATA / CURRICULUM VITAE</h1>
+          <h2 class="biodata-title">BIO-DATA / CURRICULUM VITAE</h2>
           <p class="biodata-subtitle">Personal, Educational & Professional Records</p>
         </header>
 
         <!-- Section 1: Career Objective -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">CAREER OBJECTIVE</h2>
+          <h3 class="resume-section-heading">CAREER OBJECTIVE</h3>
           <p class="resume-item-detail">
             Passionate Software Engineer aspiring to utilize technical acumen, creative problem-solving skills, and hands-on expertise in Python, C, deep learning systems, and full-stack development to build impactful digital solutions while continuously expanding engineering competencies.
           </p>
@@ -90,7 +100,7 @@
 
         <!-- Section 2: Personal Particulars -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">PERSONAL PARTICULARS</h2>
+          <h3 class="resume-section-heading">PERSONAL PARTICULARS</h3>
           <div class="biodata-grid">
             <div class="biodata-label">Full Name:</div>
             <div class="biodata-val"><strong>MOHAMMED NAJAF</strong></div>
@@ -99,10 +109,10 @@
             <div class="biodata-val">Software Engineer</div>
 
             <div class="biodata-label">Contact Number:</div>
-            <div class="biodata-val">+91 9656432327</div>
+            <div class="biodata-val"><a href="tel:+919656432327">+91 9656432327</a></div>
 
-            <div class="biodata-label">Email ID:</div>
-            <div class="biodata-val">mohammednajaf.nj5@gmail.com</div>
+            <div class="biodata-label">Email Address:</div>
+            <div class="biodata-val"><a href="mailto:mohammednajaf.nj5@gmail.com">mohammednajaf.nj5@gmail.com</a></div>
 
             <div class="biodata-label">Permanent Address:</div>
             <div class="biodata-val">Bendichal North, Kasaragod, Kerala, India</div>
@@ -120,7 +130,7 @@
 
         <!-- Section 3: Educational Qualifications (HTML Table) -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">ACADEMIC QUALIFICATIONS</h2>
+          <h3 class="resume-section-heading">ACADEMIC QUALIFICATIONS</h3>
           <div class="data-table-wrapper">
             <table class="data-table" summary="Educational qualifications of Mohammed Najaf">
               <thead>
@@ -151,113 +161,85 @@
 
         <!-- Section 4: Technical & Professional Capabilities -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">TECHNICAL & PRACTICAL SKILLS</h2>
+          <h3 class="resume-section-heading">TECHNICAL & PRACTICAL SKILLS</h3>
           <div class="biodata-grid">
             <div class="biodata-label">Programming Languages:</div>
-            <div class="biodata-val">Python, C, Java, HTML, CSS, JavaScript / jQuery</div>
+            <div class="biodata-val">Python, C, Java, HTML5, CSS3, JavaScript</div>
 
             <div class="biodata-label">Tools & IDEs:</div>
             <div class="biodata-val">Visual Studio Code (VS Code), PyCharm, Arduino IDE</div>
 
-            <div class="biodata-label">Domains & Interests:</div>
-            <div class="biodata-val">Deep Learning, Assistive AI, Web Development, UI/UX Design, Cloud Platforms</div>
+            <div class="biodata-label">Engineering Domains:</div>
+            <div class="biodata-val">Deep Learning, Assistive AI, Web Systems, Cloud Platforms</div>
 
             <div class="biodata-label">Core Competencies:</div>
-            <div class="biodata-val">Problem Solving, Analytical Thinking, Communication, Practical Hardware Repair</div>
+            <div class="biodata-val">Analytical Thinking, Communication, Practical Hardware Repair</div>
           </div>
         </section>
 
         <!-- Section 5: Key Projects Accomplished -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">PROJECTS & RESEARCH WORKS</h2>
+          <h3 class="resume-section-heading">KEY ENGINEERING PROJECTS</h3>
           <div class="data-table-wrapper">
-            <table class="data-table">
+            <table class="data-table" summary="Key engineering projects accomplished">
               <thead>
                 <tr>
-                  <th scope="col" style="width: 28%;">Project Title</th>
-                  <th scope="col" style="width: 22%;">Role & Type</th>
+                  <th scope="col" style="width: 30%;">Project Title</th>
+                  <th scope="col" style="width: 25%;">Role & Type</th>
                   <th scope="col" style="width: 15%;">Period</th>
                   <th scope="col">Summary & Key Contribution</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Disaster Management System</strong></td>
-                  <td>Mini Project - Lead Developer</td>
-                  <td>2026 - Now</td>
-                  <td>AI-powered deep learning system designed to predict regional floods and landslides and coordinate automated early alerts.</td>
+                  <td><strong>Disaster Management AI</strong></td>
+                  <td>Lead Developer · Mini Project</td>
+                  <td>2026 - Present</td>
+                  <td>AI-powered early warning model predicting regional floods and landslides.</td>
                 </tr>
                 <tr>
-                  <td><strong>Indian Sign Language Converter</strong></td>
-                  <td>Mini Project - Lead Developer</td>
-                  <td>2026 - Now</td>
-                  <td>Real-time assistive communication tool that captures ISL hand gestures via webcam and translates them into spoken audio.</td>
+                  <td><strong>Sign Language to Speech</strong></td>
+                  <td>Lead Developer · Assistive Tech</td>
+                  <td>2026 - Present</td>
+                  <td>Real-time computer vision system translating ISL hand gestures to voice audio.</td>
                 </tr>
                 <tr>
-                  <td><strong>Bus Reservation & Tracking</strong></td>
-                  <td>Group Project - Nex Move</td>
+                  <td><strong>Nex Move Fleet System</strong></td>
+                  <td>Full-Stack Developer · Group Project</td>
                   <td>2025 - 2026</td>
-                  <td>Full-stack responsive web application for bus route discovery, live seat booking, and schedule tracking.</td>
+                  <td>Public transport booking platform with seat reservation and route coordination.</td>
+                </tr>
+                <tr>
+                  <td><strong>Autonomous RC Vehicle</strong></td>
+                  <td>Hardware Developer · ComedKares</td>
+                  <td>Certified</td>
+                  <td>Radio-controlled vehicle with Arduino microcontroller and sensor guidance.</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        <!-- Section 6: Certifications & Accreditations -->
+        <!-- Section 6: Formal Declaration -->
         <section class="resume-section">
-          <h2 class="resume-section-heading">CERTIFICATIONS & TRAINING</h2>
-          <ul class="resume-list">
-            <li class="resume-list-item"><strong>RC Car</strong> — Issued by ComedKares</li>
-            <li class="resume-list-item"><strong>Energy Literacy</strong> — Certified by Energy Swaraj Foundation</li>
-            <li class="resume-list-item"><strong>C Training</strong> — Completed with Edu Pyramids</li>
-          </ul>
-        </section>
-
-        <!-- Section 7: Hobbies & Personal Interests -->
-        <section class="resume-section">
-          <h2 class="resume-section-heading">AREAS OF INTEREST & HOBBIES</h2>
-          <ul class="resume-list">
-            <li class="resume-list-item">Building and programming Arduino-based RC cars and autonomous mini-vehicles</li>
-            <li class="resume-list-item">Exploring UI/UX digital design trends and human-centered design workflows</li>
-            <li class="resume-list-item">Computer hardware diagnostics, maintenance, and technical consulting</li>
-            <li class="resume-list-item">Travel planning, cultural exploration, and consulting</li>
-          </ul>
-        </section>
-
-        <!-- Section 8: Formal Declaration -->
-        <section class="declaration-card">
-          <p class="declaration-text">
-            "I hereby solemnly declare that the particulars furnished above are true, complete, and authentic to the best of my knowledge and belief."
-          </p>
-          <div class="signature-row">
-            <div>
-              <p><strong>Place:</strong> Kasaragod, Kerala</p>
-              <p><strong>Date:</strong> November 2026</p>
-            </div>
-            <div style="text-align: right;">
-              <div class="sig-name">Mohammed Najaf</div>
-              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">(Signature of Candidate)</p>
+          <div class="declaration-card">
+            <p class="declaration-text">
+              "I hereby declare that all the information furnished above is true, complete, and authentic to the best of my knowledge and belief."
+            </p>
+            <div class="signature-row">
+              <div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.25rem;">Place: Kasaragod, Kerala</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Date: November 2026</p>
+              </div>
+              <div style="text-align: right;">
+                <div class="sig-name">MOHAMMED NAJAF</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.35rem;">Candidate Signature</p>
+              </div>
             </div>
           </div>
         </section>
 
       </article>
-
-      <!-- Bottom Quick Navigation -->
-      <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;" class="no-print">
-        <button class="btn btn-lava btn-print">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 6 2 18 2 18 9"></polyline>
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-            <rect x="6" y="14" width="12" height="8"></rect>
-          </svg>
-          Print Formal Bio-Data
-        </button>
-        <a href="contact.html" class="btn btn-glass">
-          Connect with Mohammed &rarr;
-        </a>
-      </div>
 
     </div>
   </main>
@@ -268,17 +250,14 @@
       <p>&copy; 2026 Mohammed Najaf. All rights reserved.</p>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="biodata.html">Bio-Data</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
   <script src="js/main.js"></script>
 </body>
 </html>
