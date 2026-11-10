@@ -270,114 +270,99 @@
   });
 
   // ==========================================
-  // 9. Contact Form Handling (Real Transmission via FormSubmit)
+  // 9. Contact Form Handling: Direct Redirect to Gmail / Mail Platform
   // ==========================================
   document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      // Check for success redirect from fallback POST
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('status') === 'success') {
-        showToast('Thank you! Your message was transmitted successfully.', 'success');
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState({}, document.title, window.location.pathname);
-        }
+    if (!contactForm) return;
+
+    function prepareMailData() {
+      const nameInput = document.getElementById('contact-name');
+      const emailInput = document.getElementById('contact-email');
+      const subjectInput = document.getElementById('contact-subject');
+      const messageInput = document.getElementById('contact-message');
+
+      const name = (nameInput?.value || '').trim();
+      const email = (emailInput?.value || '').trim();
+      const subject = (subjectInput?.value || '').trim();
+      const message = (messageInput?.value || '').trim();
+
+      if (!name) {
+        showToast('Please enter your name.', 'error');
+        nameInput?.focus();
+        return null;
       }
 
-      contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const nameInput = document.getElementById('contact-name');
-        const emailInput = document.getElementById('contact-email');
-        const subjectInput = document.getElementById('contact-subject');
-        const messageInput = document.getElementById('contact-message');
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (!message) {
+        showToast('Please enter your message content.', 'error');
+        messageInput?.focus();
+        return null;
+      }
 
-        const name = (nameInput?.value || '').trim();
-        const email = (emailInput?.value || '').trim();
-        const subject = (subjectInput?.value || '').trim();
-        const message = (messageInput?.value || '').trim();
+      const recipient = 'mohammednajaf.nj5@gmail.com';
+      const finalSubject = subject || `Portfolio Inquiry from ${name}`;
 
-        if (!name) {
-          showToast('Please provide your name.', 'error');
-          nameInput?.focus();
-          return;
-        }
+      let bodyParts = [
+        `Hi Mohammed,`,
+        ``,
+        message,
+        ``,
+        `----------------------------------------`,
+        `Sender: ${name}`
+      ];
+      if (email) {
+        bodyParts.push(`Reply Email: ${email}`);
+      }
+      bodyParts.push(`Source: Mohammed Najaf Portfolio (https://mrnj5.github.io/)`);
 
-        if (!email) {
-          showToast('Please provide your email address.', 'error');
-          emailInput?.focus();
-          return;
-        }
+      const finalBody = bodyParts.join('\n');
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          showToast('Please enter a valid email address.', 'error');
-          emailInput?.focus();
-          return;
-        }
+      const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(finalBody)}`;
+      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(finalSubject)}&body=${encodeURIComponent(finalBody)}`;
 
-        if (!message) {
-          showToast('Please enter your message.', 'error');
-          messageInput?.focus();
-          return;
-        }
+      return { name, email, subject: finalSubject, message: finalBody, mailtoUrl, gmailWebUrl };
+    }
 
-        const originalBtnHtml = submitBtn.innerHTML;
-        submitBtn.disabled = true;
+    // 1. Primary "Transmit Message" button (opens user's configured mail platform: Gmail app, Apple Mail, Outlook)
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = prepareMailData();
+      if (!data) return;
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalHtml = submitBtn ? submitBtn.innerHTML : '';
+
+      if (submitBtn) {
         submitBtn.innerHTML = `
-          <svg class="spinner-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>Transmitting Message...</span>
+          <span>Redirecting to Mail...</span>
         `;
+      }
 
-        try {
-          const endpoint = 'https://formsubmit.co/ajax/mohammednajaf.nj5@gmail.com';
-          const payload = {
-            name: name,
-            email: email,
-            _subject: subject || `Portfolio Inquiry from ${name}`,
-            message: message,
-            _template: 'table',
-            _captcha: 'false'
-          };
+      showToast('Opening your mail platform... (Using browser? Tap "Open in Gmail Web")', 'success');
 
-          const response = await fetch(endpoint, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
-          });
+      // Trigger mail client / Gmail app redirect with message and subject pre-populated
+      window.location.href = data.mailtoUrl;
 
-          if (response.ok) {
-            submitBtn.innerHTML = `
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Message Transmitted!</span>
-            `;
-            showToast('Thank you, ' + name + '! Your message was delivered to Mohammed Najaf.', 'success');
-            contactForm.reset();
-            setTimeout(() => {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalBtnHtml;
-            }, 3000);
-          } else {
-            throw new Error('Endpoint returned HTTP ' + response.status);
-          }
-        } catch (err) {
-          console.warn('Direct transmission failed, redirecting to mailto fallback:', err);
-          submitBtn.innerHTML = originalBtnHtml;
-          submitBtn.disabled = false;
-          showToast('Transmission fallback: Launching email client...', 'info');
-
-          // Fallback to mailto link
-          const mailtoSubject = encodeURIComponent(subject || `Portfolio Contact from ${name}`);
-          const mailtoBody = encodeURIComponent(`Sender: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-          window.location.href = `mailto:mohammednajaf.nj5@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      setTimeout(function() {
+        if (submitBtn) {
+          submitBtn.innerHTML = originalHtml;
         }
+      }, 3500);
+    });
+
+    // 2. Direct "Open in Gmail Web" button (opens Google Mail web composer in new tab)
+    const gmailWebBtn = document.getElementById('btn-open-gmail-web');
+    if (gmailWebBtn) {
+      gmailWebBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const data = prepareMailData();
+        if (!data) return;
+
+        showToast('Opening Gmail Web composer with your message...', 'success');
+        window.open(data.gmailWebUrl, '_blank', 'noopener,noreferrer');
       });
     }
   });
