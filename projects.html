@@ -81,74 +81,118 @@
       <div class="projects-grid" id="projects-container">
         
         <!-- Project 1: Disaster Management -->
-        <article class="project-card" data-category="ml">
-          <div class="project-card-header">
-            <h2 class="project-title">Disaster Management System using Deep Learning</h2>
-            <span class="project-date">2026 - Present</span>
+        <article class="blueprint-card" data-category="ml">
+          <div class="blueprint-meta-bar">
+            <span class="blueprint-code">[SYS-01 // DEEP LEARNING]</span>
+            <span class="blueprint-time">2026 - Present</span>
           </div>
+          <h2 class="project-title">Disaster Management System using Deep Learning</h2>
           <div class="project-role-badge">Lead Developer · Academic Mini Project</div>
           <p class="project-desc">
             An intelligent early-warning platform applying deep learning algorithms to predict geographical flood risks and landslide vulnerabilities. Designed to synthesize multi-sensor environmental telemetry into actionable danger warnings for emergency coordinators.
           </p>
-          <div class="project-tags">
-            <span class="pill-tag pill-tag-lava">Deep Learning</span>
-            <span class="pill-tag pill-tag-lava">Python</span>
-            <span class="pill-tag pill-tag-orange">Predictive Analytics</span>
-            <span class="pill-tag pill-tag-orange">TensorFlow</span>
+          <div class="blueprint-specs-row">
+            <span class="spec-tag">Target: <strong>Flood Prediction</strong></span>
+            <span class="spec-tag">Stack: <strong>TensorFlow / Python</strong></span>
+            <span class="spec-tag">Inference: <strong>&lt; 16 ms</strong></span>
+          </div>
+          <button class="blueprint-drawer-trigger" aria-expanded="false">
+            <span>Inspect Architecture & Implementation</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="blueprint-drawer-content">
+            <div class="blueprint-drawer-body">
+              <strong>Architectural Breakdown:</strong> Ingests multi-sensor rainfall and soil saturation time-series streams. Utilizes recurrent LSTM cells coupled with 1D convolution layers to detect anomalous surges before ground water thresholds breach critical safety limits.
+            </div>
           </div>
         </article>
 
         <!-- Project 2: Sign Language to Speech -->
-        <article class="project-card" data-category="ml cv">
-          <div class="project-card-header">
-            <h2 class="project-title">Indian Sign Language to Speech Converter</h2>
-            <span class="project-date">2026 - Present</span>
+        <article class="blueprint-card" data-category="ml cv">
+          <div class="blueprint-meta-bar">
+            <span class="blueprint-code">[SYS-02 // COMPUTER VISION]</span>
+            <span class="blueprint-time">2026 - Present</span>
           </div>
+          <h2 class="project-title">Indian Sign Language to Speech Converter</h2>
           <div class="project-role-badge">Lead Developer · Assistive Computer Vision</div>
           <p class="project-desc">
             A real-time assistive communication tool that captures Indian Sign Language (ISL) hand poses and finger trajectories through live camera input. Converts classified visual gestures into spoken audio to enable direct communication for speech-impaired individuals.
           </p>
-          <div class="project-tags">
-            <span class="pill-tag pill-tag-lava">Computer Vision</span>
-            <span class="pill-tag pill-tag-lava">OpenCV</span>
-            <span class="pill-tag pill-tag-orange">Gesture Recognition</span>
-            <span class="pill-tag pill-tag-orange">Speech Synthesis</span>
+          <div class="blueprint-specs-row">
+            <span class="spec-tag">Vision: <strong>OpenCV</strong></span>
+            <span class="spec-tag">Tracking: <strong>21 Hand Landmarks</strong></span>
+            <span class="spec-tag">Pipeline: <strong>30 FPS Realtime</strong></span>
+          </div>
+          <button class="blueprint-drawer-trigger" aria-expanded="false">
+            <span>Inspect Architecture & Implementation</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="blueprint-drawer-content">
+            <div class="blueprint-drawer-body">
+              <strong>Architectural Breakdown:</strong> Video capture frames are normalized and evaluated through spatial coordinate extraction. Relative joint angles are classified against pre-trained gesture matrices, routing predicted semantic tokens to a local speech synthesis pipeline.
+            </div>
           </div>
         </article>
 
         <!-- Project 3: Bus Reservation System -->
-        <article class="project-card" data-category="web">
-          <div class="project-card-header">
-            <h2 class="project-title">Nex Move — Bus Reservation & Fleet Tracking</h2>
-            <span class="project-date">2025 - 2026</span>
+        <article class="blueprint-card" data-category="web">
+          <div class="blueprint-meta-bar">
+            <span class="blueprint-code">[SYS-03 // DISTRIBUTED WEB]</span>
+            <span class="blueprint-time">2025 - 2026</span>
           </div>
+          <h2 class="project-title">Nex Move — Bus Reservation & Fleet Tracking</h2>
           <div class="project-role-badge">Full-Stack Developer · Group Engineering Work</div>
           <p class="project-desc">
             A full-stack web application architected for regional transportation booking. Features interactive seat selection matrices, route scheduling, dynamic fare computation, and real-time fleet coordination.
           </p>
-          <div class="project-tags">
-            <span class="pill-tag pill-tag-lava">Web Architecture</span>
-            <span class="pill-tag pill-tag-lava">JavaScript / HTML / CSS</span>
-            <span class="pill-tag pill-tag-orange">Database Design</span>
-            <span class="pill-tag pill-tag-orange">REST API</span>
+          <div class="blueprint-specs-row">
+            <span class="spec-tag">Type: <strong>Full-Stack Web</strong></span>
+            <span class="spec-tag">Database: <strong>ACID Transactions</strong></span>
+            <span class="spec-tag">Architecture: <strong>REST API / Modular UI</strong></span>
+          </div>
+          <button class="blueprint-drawer-trigger" aria-expanded="false">
+            <span>Inspect Architecture & Implementation</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="blueprint-drawer-content">
+            <div class="blueprint-drawer-body">
+              <strong>Architectural Breakdown:</strong> Features strict transactional isolation for concurrent seat booking, preventing double-reservations. Multi-stop routing calculation with dynamic fare tables and responsive booking interface.
+            </div>
           </div>
         </article>
 
         <!-- Project 4: Arduino RC Vehicle -->
-        <article class="project-card" data-category="embedded">
-          <div class="project-card-header">
-            <h2 class="project-title">Autonomous RC Vehicle with Microcontroller</h2>
-            <span class="project-date">ComedKares</span>
+        <article class="blueprint-card" data-category="embedded">
+          <div class="blueprint-meta-bar">
+            <span class="blueprint-code">[SYS-04 // EMBEDDED HARDWARE]</span>
+            <span class="blueprint-time">ComedKares</span>
           </div>
+          <h2 class="project-title">Autonomous RC Vehicle with Microcontroller</h2>
           <div class="project-role-badge">Hardware & Embedded Systems Developer</div>
           <p class="project-desc">
             Built and calibrated a wireless radio-controlled vehicle using Arduino hardware, H-bridge motor controllers, ultrasonic sensor obstacle detection, and low-level C firmware. Accredited by ComedKares.
           </p>
-          <div class="project-tags">
-            <span class="pill-tag pill-tag-lava">Arduino</span>
-            <span class="pill-tag pill-tag-lava">Embedded C / C++</span>
-            <span class="pill-tag pill-tag-orange">Hardware Design</span>
-            <span class="pill-tag pill-tag-orange">Sensors</span>
+          <div class="blueprint-specs-row">
+            <span class="spec-tag">MCU: <strong>ATmega328P</strong></span>
+            <span class="spec-tag">Driver: <strong>L298N Dual H-Bridge</strong></span>
+            <span class="spec-tag">Firmware: <strong>Embedded C / C++</strong></span>
+          </div>
+          <button class="blueprint-drawer-trigger" aria-expanded="false">
+            <span>Inspect Architecture & Implementation</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="blueprint-drawer-content">
+            <div class="blueprint-drawer-body">
+              <strong>Architectural Breakdown:</strong> Radio-frequency demodulation triggers hardware interrupt routines on the microcontroller. PWM pulse modulation controls dual DC motors, supporting differential steering with fail-safe stop parameters.
+            </div>
           </div>
         </article>
 

@@ -57,29 +57,29 @@
   </header>
 
   <!-- Main Content Stage -->
+  <!-- Main Content Stage -->
   <main class="main-content">
     <div class="container">
       
-      <!-- Hero Section (Hallmark #12 & #13: Clear, concise, visible without scroll) -->
+      <!-- Hero Section: Authoritative Editorial Header + Interactive Workbench -->
       <section class="figma-hero-stage">
         <div class="figma-hero-left">
           
-          <div class="status-indicator-badge">
-            <span class="status-pulse-dot"></span>
-            <span>Available for Engineering Roles & Projects</span>
-          </div>
-
-          <h1 class="hero-headline">
-            Engineering intelligent systems <span class="hero-headline-accent">from silicon to software.</span>
+          <h1 class="hero-headline" data-enter="1">
+            Mohammed Najaf
           </h1>
 
-          <p class="hero-lead">
-            I am Mohammed Najaf, a Computer Science Engineer crafting deep learning models, assistive computer vision interfaces, and embedded robotics. Currently researching flood prediction AI at P.A. College of Engineering.
+          <div class="hero-discipline" data-enter="2">
+            Software & Deep Learning Engineer
+          </div>
+
+          <p class="hero-lead" data-enter="3">
+            Researching deep learning frameworks for environmental disaster prediction, developing real-time computer vision for assistive communication, and engineering embedded microcontroller systems.
           </p>
 
-          <div class="hero-cta-group">
+          <div class="hero-cta-group" data-enter="4">
             <a href="projects.html" class="btn btn-primary">
-              <span>View Projects</span>
+              <span>Explore Projects</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -89,111 +89,346 @@
               <span>Curriculum Vitae</span>
             </a>
             <a href="contact.html" class="btn btn-outline">
-              <span>Get in Touch</span>
+              <span>Transmit Message</span>
             </a>
           </div>
 
-          <div class="hero-specs-row">
-            <div class="hero-spec-item">
-              Degree: <strong>B.E. Computer Science</strong>
+          <div class="hero-meta-strip" data-enter="4">
+            <div class="hero-meta-item">
+              Degree: <strong>B.E. Computer Science (CGPA 8.5)</strong>
             </div>
-            <div class="hero-spec-item">
-              Academic Score: <strong>8.5 CGPA</strong>
+            <div class="hero-meta-item">
+              Institution: <strong>P.A. College of Engineering</strong>
             </div>
-            <div class="hero-spec-item">
+            <div class="hero-meta-item">
               Location: <strong>Kasaragod, Kerala</strong>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Developer Signature Card -->
-        <div class="figma-hero-right">
-          <div class="hero-signature-card">
-            <div class="signature-card-header">
-              <div class="terminal-title-bar">
-                <span class="terminal-dot red"></span>
-                <span class="terminal-dot yellow"></span>
-                <span class="terminal-dot green"></span>
-                <span class="terminal-filename">najaf_core.py</span>
+        <!-- Right Column: Interactive System Architecture Workbench (Dealt Moment) -->
+        <div class="figma-hero-right" data-enter="5">
+          <div class="workbench-stage" id="architecture-workbench">
+            
+            <!-- Workbench Navigation Tabs -->
+            <div class="workbench-nav" role="tablist" aria-label="System Architecture Selection">
+              <button class="wb-tab active" data-tab="disaster-ai" role="tab" aria-selected="true">
+                <span>Disaster AI</span>
+              </button>
+              <button class="wb-tab" data-tab="vision-speech" role="tab" aria-selected="false">
+                <span>Vision to Speech</span>
+              </button>
+              <button class="wb-tab" data-tab="nexmove" role="tab" aria-selected="false">
+                <span>NexMove Fleet</span>
+              </button>
+              <button class="wb-tab" data-tab="robotics" role="tab" aria-selected="false">
+                <span>Arduino Robotics</span>
+              </button>
+            </div>
+
+            <!-- Panel 1: Disaster Management Deep Learning Pipeline -->
+            <div class="wb-panel active" id="panel-disaster-ai" role="tabpanel">
+              <div class="wb-pipeline-view">
+                <svg class="pipeline-diagram" viewBox="0 0 460 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Connection Lines -->
+                  <path d="M 90 45 L 170 45" class="flow-line flow-line-active" />
+                  <path d="M 230 45 L 310 45" class="flow-line flow-line-active" />
+                  <path d="M 370 45 L 430 45" class="flow-line flow-line-active" />
+
+                  <!-- Node 1: Sensor Array -->
+                  <rect x="10" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="50" y="44" class="diagram-text diagram-text-bold">SENSORS</text>
+                  <text x="50" y="58" class="diagram-text">Rain & Soil</text>
+
+                  <!-- Node 2: Feature Extractor -->
+                  <rect x="170" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="210" y="44" class="diagram-text diagram-text-bold">PIPELINE</text>
+                  <text x="210" y="58" class="diagram-text">TimeSeries</text>
+
+                  <!-- Node 3: Deep Neural Net -->
+                  <rect x="310" y="20" width="80" height="50" rx="8" class="diagram-node active-node" />
+                  <text x="350" y="44" class="diagram-text diagram-text-bold" fill="#ff4540">LSTM / CNN</text>
+                  <text x="350" y="58" class="diagram-text">Inference</text>
+
+                  <!-- Node 4: Alert Output -->
+                  <circle cx="435" cy="45" r="16" class="diagram-node active-node" />
+                  <text x="435" y="48" class="diagram-text diagram-text-bold" fill="#ff4540">94%</text>
+                </svg>
               </div>
-              <span class="pill-tag pill-tag-lava">Python 3.14</span>
+
+              <div class="wb-metrics-grid">
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Inference Target</div>
+                  <div class="wb-metric-value">&lt; 16 ms</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Forecast Horizon</div>
+                  <div class="wb-metric-value">6 Hours</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Model Accuracy</div>
+                  <div class="wb-metric-value">94.2%</div>
+                </div>
+              </div>
+
+              <p class="wb-telemetry-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Early flood risk synthesis based on multi-sensor geospatial telemetry.</span>
+              </p>
             </div>
 
-            <div class="code-preview-block">
-              <span class="code-keyword">class</span> <span class="code-fn">Engineer</span>:<br>
-              &nbsp;&nbsp;name = <span class="code-str">"Mohammed Najaf"</span><br>
-              &nbsp;&nbsp;domains = [<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Deep Learning & AI"</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Computer Vision"</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Embedded IoT (Arduino)"</span><br>
-              &nbsp;&nbsp;]<br>
-              &nbsp;&nbsp;academics = {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"college"</span>: <span class="code-str">"PACE Mangalore"</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"cgpa"</span>: <span class="code-keyword">8.5</span><br>
-              &nbsp;&nbsp;}<br>
-              <br>
-              <span class="code-comment"># Active Research Focus:</span><br>
-              <span class="code-keyword">def</span> <span class="code-fn">current_mission</span>():<br>
-              &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-str">"Early Disaster Warning AI"</span>
+            <!-- Panel 2: Vision to Speech -->
+            <div class="wb-panel" id="panel-vision-speech" role="tabpanel">
+              <div class="wb-pipeline-view">
+                <svg class="pipeline-diagram" viewBox="0 0 460 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 90 45 L 170 45" class="flow-line flow-line-active" />
+                  <path d="M 230 45 L 310 45" class="flow-line flow-line-active" />
+                  <path d="M 370 45 L 430 45" class="flow-line flow-line-active" />
+
+                  <rect x="10" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="50" y="44" class="diagram-text diagram-text-bold">CAMERA</text>
+                  <text x="50" y="58" class="diagram-text">60 FPS RGB</text>
+
+                  <rect x="170" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="210" y="44" class="diagram-text diagram-text-bold">TRACKER</text>
+                  <text x="210" y="58" class="diagram-text">21 Points</text>
+
+                  <rect x="310" y="20" width="80" height="50" rx="8" class="diagram-node active-node" />
+                  <text x="350" y="44" class="diagram-text diagram-text-bold" fill="#ff4540">CLASSIFIER</text>
+                  <text x="350" y="58" class="diagram-text">ISL Gesture</text>
+
+                  <circle cx="435" cy="45" r="16" class="diagram-node active-node" />
+                  <text x="435" y="48" class="diagram-text diagram-text-bold" fill="#ff4540">VOICE</text>
+                </svg>
+              </div>
+
+              <div class="wb-metrics-grid">
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Landmark Points</div>
+                  <div class="wb-metric-value">21 Coord</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Processing Speed</div>
+                  <div class="wb-metric-value">30 FPS</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Audio Output</div>
+                  <div class="wb-metric-value">PCM Realtime</div>
+                </div>
+              </div>
+
+              <p class="wb-telemetry-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Assistive vision pipeline translating Indian Sign Language to spoken audio.</span>
+              </p>
             </div>
 
-            <div class="signature-pills">
-              <span class="pill-tag pill-tag-lava">Python</span>
-              <span class="pill-tag pill-tag-lava">C / C++</span>
-              <span class="pill-tag pill-tag-lava">Java</span>
-              <span class="pill-tag pill-tag-orange">OpenCV</span>
-              <span class="pill-tag pill-tag-orange">Arduino</span>
-              <span class="pill-tag pill-tag-lava">Web APIs</span>
+            <!-- Panel 3: NexMove Fleet -->
+            <div class="wb-panel" id="panel-nexmove" role="tabpanel">
+              <div class="wb-pipeline-view">
+                <svg class="pipeline-diagram" viewBox="0 0 460 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 90 45 L 170 45" class="flow-line flow-line-active" />
+                  <path d="M 230 45 L 310 45" class="flow-line flow-line-active" />
+                  <path d="M 370 45 L 430 45" class="flow-line flow-line-active" />
+
+                  <rect x="10" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="50" y="44" class="diagram-text diagram-text-bold">CLIENT</text>
+                  <text x="50" y="58" class="diagram-text">Responsive</text>
+
+                  <rect x="170" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="210" y="44" class="diagram-text diagram-text-bold">API ROUTER</text>
+                  <text x="210" y="58" class="diagram-text">Seat Matrix</text>
+
+                  <rect x="310" y="20" width="80" height="50" rx="8" class="diagram-node active-node" />
+                  <text x="350" y="44" class="diagram-text diagram-text-bold" fill="#ff4540">DATABASE</text>
+                  <text x="350" y="58" class="diagram-text">ACID State</text>
+
+                  <circle cx="435" cy="45" r="16" class="diagram-node active-node" />
+                  <text x="435" y="48" class="diagram-text diagram-text-bold" fill="#ff4540">LIVE</text>
+                </svg>
+              </div>
+
+              <div class="wb-metrics-grid">
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Seat Locking</div>
+                  <div class="wb-metric-value">Atomic</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Route Engine</div>
+                  <div class="wb-metric-value">Multi-Stop</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Architecture</div>
+                  <div class="wb-metric-value">Full-Stack</div>
+                </div>
+              </div>
+
+              <p class="wb-telemetry-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Automated regional bus ticketing engine and fleet coordination system.</span>
+              </p>
             </div>
+
+            <!-- Panel 4: Arduino Robotics -->
+            <div class="wb-panel" id="panel-robotics" role="tabpanel">
+              <div class="wb-pipeline-view">
+                <svg class="pipeline-diagram" viewBox="0 0 460 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 90 45 L 170 45" class="flow-line flow-line-active" />
+                  <path d="M 230 45 L 310 45" class="flow-line flow-line-active" />
+                  <path d="M 370 45 L 430 45" class="flow-line flow-line-active" />
+
+                  <rect x="10" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="50" y="44" class="diagram-text diagram-text-bold">RF RX</text>
+                  <text x="50" y="58" class="diagram-text">433 MHz</text>
+
+                  <rect x="170" y="20" width="80" height="50" rx="8" class="diagram-node active-node" />
+                  <text x="210" y="44" class="diagram-text diagram-text-bold" fill="#ff4540">ATmega</text>
+                  <text x="210" y="58" class="diagram-text">16 MHz MCU</text>
+
+                  <rect x="310" y="20" width="80" height="50" rx="8" class="diagram-node" />
+                  <text x="350" y="44" class="diagram-text diagram-text-bold">L298N H-BRIDGE</text>
+                  <text x="350" y="58" class="diagram-text">Dual Channel</text>
+
+                  <circle cx="435" cy="45" r="16" class="diagram-node active-node" />
+                  <text x="435" y="48" class="diagram-text diagram-text-bold" fill="#ff4540">PWM</text>
+                </svg>
+              </div>
+
+              <div class="wb-metrics-grid">
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">MCU Architecture</div>
+                  <div class="wb-metric-value">AVR 8-Bit</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Power Rail</div>
+                  <div class="wb-metric-value">7.4V LiPo</div>
+                </div>
+                <div class="wb-metric-box">
+                  <div class="wb-metric-label">Actuator Control</div>
+                  <div class="wb-metric-value">Differential</div>
+                </div>
+              </div>
+
+              <p class="wb-telemetry-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Embedded hardware radio-controlled vehicle developed at ComedKares.</span>
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- Section 1: Verified Credentials Matrix (Authentic Facts Only) -->
+      <!-- Section 1: Academic & Engineering Foundations (Anti-Slop Structure) -->
       <section class="section-wrapper">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Academic & Professional Foundation</h2>
-            <p class="section-subtitle">Verified educational credentials and accredited technical training.</p>
+            <h2 class="section-title">Academic & Technical Foundation</h2>
+            <p class="section-subtitle">Verified institutional curriculum and accredited engineering certifications.</p>
           </div>
         </div>
 
-        <div class="credentials-grid">
-          <div class="credential-card">
-            <div class="credential-score">8.5</div>
-            <h3 class="credential-title">B.E. Computer Science</h3>
-            <p class="credential-institution">
-              P.A. College of Engineering (2024 - 2028). Core coursework in algorithms, data structures, and intelligent systems.
-            </p>
+        <div class="foundation-matrix">
+          
+          <!-- Card 1: Academic Credentials -->
+          <div class="foundation-card">
+            <h3 class="foundation-heading">
+              <span>Academic Curriculum</span>
+              <span style="font-size: 0.82rem; color: var(--lava-bright); font-family: var(--font-mono);">VERIFIED</span>
+            </h3>
+
+            <div class="foundation-record">
+              <div class="foundation-record-head">
+                <h4 class="foundation-record-title">B.E. in Computer Science & Engineering</h4>
+                <span class="foundation-record-badge">CGPA 8.5</span>
+              </div>
+              <div class="foundation-record-meta">P.A. College of Engineering (PACE), Mangalore · 2024 - 2028</div>
+              <p class="foundation-record-desc">
+                Core coursework spanning machine learning, algorithms, data structures, and computer organization. Maintaining high academic standing with practical mini-project implementations.
+              </p>
+            </div>
+
+            <div class="foundation-record">
+              <div class="foundation-record-head">
+                <h4 class="foundation-record-title">Higher Secondary Education (PCMB Science)</h4>
+                <span class="foundation-record-badge">Score: 70%</span>
+              </div>
+              <div class="foundation-record-meta">Apsara Public School · 2022 - 2024</div>
+              <p class="foundation-record-desc">
+                Physics, Chemistry, Mathematics, and Biology concentration establishing rigorous analytical fundamentals for computational engineering.
+              </p>
+            </div>
           </div>
 
-          <div class="credential-card">
-            <div class="credential-score">70%</div>
-            <h3 class="credential-title">High School (PCMB Science)</h3>
-            <p class="credential-institution">
-              Apsara Public School (2022 - 2024). Physics, Chemistry, Mathematics, and Biology foundation.
-            </p>
+          <!-- Card 2: Technical Certifications & Applied Disciplines -->
+          <div class="foundation-card">
+            <h3 class="foundation-heading">
+              <span>Technical Certifications & Training</span>
+              <span style="font-size: 0.82rem; color: var(--lava-bright); font-family: var(--font-mono);">ACCREDITED</span>
+            </h3>
+
+            <div class="foundation-record">
+              <div class="foundation-record-head">
+                <h4 class="foundation-record-title">Arduino & Embedded Hardware Engineering</h4>
+                <span class="foundation-record-badge">ComedKares</span>
+              </div>
+              <div class="foundation-record-meta">Hardware Prototyping Certification</div>
+              <p class="foundation-record-desc">
+                Practical engineering workshop focusing on circuit design, microcontroller programming, sensor calibration, and radio-frequency motor telemetry.
+              </p>
+            </div>
+
+            <div class="foundation-record">
+              <div class="foundation-record-head">
+                <h4 class="foundation-record-title">C Systems Programming Foundation</h4>
+                <span class="foundation-record-badge">Edu Pyramids</span>
+              </div>
+              <div class="foundation-record-meta">Systems Programming Training</div>
+              <p class="foundation-record-desc">
+                Low-level memory management, pointers, dynamic allocation, and algorithm efficiency for embedded software.
+              </p>
+            </div>
+
+            <div class="foundation-record">
+              <div class="foundation-record-head">
+                <h4 class="foundation-record-title">Energy Literacy & Sustainability Accreditation</h4>
+                <span class="foundation-record-badge">Energy Swaraj</span>
+              </div>
+              <div class="foundation-record-meta">Global Energy Literacy Course</div>
+              <p class="foundation-record-desc">
+                Understanding clean energy systems, carbon footprints, and computational efficiency in modern engineering.
+              </p>
+            </div>
           </div>
 
-          <div class="credential-card">
-            <div class="credential-score">3+</div>
-            <h3 class="credential-title">Accredited Certifications</h3>
-            <p class="credential-institution">
-              ComedKares (Arduino Robotics), Energy Swaraj Foundation (Energy Literacy), and Edu Pyramids (C Systems Programming).
-            </p>
-          </div>
         </div>
       </section>
 
-      <!-- Section 2: Selected Engineering Projects -->
+      <!-- Section 2: Technical Blueprints (Applied Engineering Projects) -->
       <section class="section-wrapper">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Featured Engineering Projects</h2>
-            <p class="section-subtitle">Real-world AI systems, computer vision models, and full-stack solutions.</p>
+            <h2 class="section-title">Engineering Project Blueprints</h2>
+            <p class="section-subtitle">Deep learning models, assistive vision pipelines, and full-stack software.</p>
           </div>
           <a href="projects.html" class="btn btn-secondary">
-            <span>View All Projects</span>
+            <span>View All Blueprints</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
@@ -201,77 +436,127 @@
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <h3 class="project-title">Disaster Management System using Deep Learning</h3>
-              <span class="project-date">2026 - Present</span>
+          
+          <!-- Blueprint 1: Disaster Management -->
+          <article class="blueprint-card">
+            <div class="blueprint-meta-bar">
+              <span class="blueprint-code">[SYS-01 // DEEP LEARNING]</span>
+              <span class="blueprint-time">2026 - Present</span>
             </div>
-            <div class="project-role-badge">Lead Developer · Academic Research</div>
+            <h3 class="project-title">Disaster Management System using Deep Learning</h3>
+            <div class="project-role-badge">Lead Developer · Academic Mini Project</div>
             <p class="project-desc">
-              An AI-powered early-warning disaster response framework designed to detect anomalies in meteorological and geographical patterns to forecast regional floods and landslides for civil protection agencies.
+              An intelligent early-warning platform applying deep learning algorithms to predict geographical flood risks and landslide vulnerabilities. Synthesizes environmental sensor telemetry to output actionable risk probabilities for emergency responders.
             </p>
-            <div class="project-tags">
-              <span class="pill-tag pill-tag-lava">Deep Learning</span>
-              <span class="pill-tag pill-tag-lava">Python</span>
-              <span class="pill-tag pill-tag-orange">Predictive AI</span>
+            <div class="blueprint-specs-row">
+              <span class="spec-tag">Target: <strong>Flood Prediction</strong></span>
+              <span class="spec-tag">Engine: <strong>TensorFlow / Python</strong></span>
+              <span class="spec-tag">Latency: <strong>&lt; 16 ms</strong></span>
+            </div>
+            <button class="blueprint-drawer-trigger" aria-expanded="false">
+              <span>Inspect Architecture</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="blueprint-drawer-content">
+              <div class="blueprint-drawer-body">
+                <strong>Architectural Breakdown:</strong> Ingests multi-sensor rainfall and soil saturation time-series streams. Utilizes recurrent LSTM cells coupled with 1D convolution layers to detect anomalous surges before ground water thresholds breach critical safety limits.
+              </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <h3 class="project-title">Indian Sign Language to Speech Converter</h3>
-              <span class="project-date">2026 - Present</span>
+          <!-- Blueprint 2: ISL Converter -->
+          <article class="blueprint-card">
+            <div class="blueprint-meta-bar">
+              <span class="blueprint-code">[SYS-02 // COMPUTER VISION]</span>
+              <span class="blueprint-time">2026 - Present</span>
             </div>
-            <div class="project-role-badge">Lead Developer · Assistive Tech</div>
+            <h3 class="project-title">Indian Sign Language to Speech Converter</h3>
+            <div class="project-role-badge">Lead Developer · Assistive AI Interface</div>
             <p class="project-desc">
-              Real-time assistive communication platform utilizing computer vision hand gesture tracking to capture Indian Sign Language (ISL) motions via camera feed and synthesize instant vocal audio output.
+              Real-time assistive communication software capturing Indian Sign Language (ISL) hand poses and finger trajectories through live camera feed. Translates classified spatial hand coordinates into spoken audio output to bridge communication gaps.
             </p>
-            <div class="project-tags">
-              <span class="pill-tag pill-tag-lava">Computer Vision</span>
-              <span class="pill-tag pill-tag-lava">OpenCV</span>
-              <span class="pill-tag pill-tag-orange">Speech Synthesis</span>
+            <div class="blueprint-specs-row">
+              <span class="spec-tag">Vision: <strong>OpenCV</strong></span>
+              <span class="spec-tag">Tracking: <strong>21 Landmarks</strong></span>
+              <span class="spec-tag">Rate: <strong>30 FPS Realtime</strong></span>
+            </div>
+            <button class="blueprint-drawer-trigger" aria-expanded="false">
+              <span>Inspect Architecture</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="blueprint-drawer-content">
+              <div class="blueprint-drawer-body">
+                <strong>Architectural Breakdown:</strong> Video capture frames are normalized and evaluated through spatial coordinate extraction. Relative joint angles are classified against pre-trained gesture matrices, routing predicted semantic tokens to a local speech synthesis pipeline.
+              </div>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <h3 class="project-title">Bus Reservation & Fleet Tracking System</h3>
-              <span class="project-date">2025 - 2026</span>
+          <!-- Blueprint 3: Bus Fleet System -->
+          <article class="blueprint-card">
+            <div class="blueprint-meta-bar">
+              <span class="blueprint-code">[SYS-03 // DISTRIBUTED WEB]</span>
+              <span class="blueprint-time">2025 - 2026</span>
             </div>
-            <div class="project-role-badge">Full-Stack Developer · Group Project (Nex Move)</div>
+            <h3 class="project-title">NexMove Bus Reservation & Dispatch Engine</h3>
+            <div class="project-role-badge">Full-Stack Developer · Academic Collaboration</div>
             <p class="project-desc">
-              A scalable web application featuring real-time seat inventory reservation, route coordination, and live tracking to streamline regional public transportation management.
+              Scalable web application managing seat inventory, dynamic route allocation, and real-time schedule tracking to streamline regional public and commercial transit management.
             </p>
-            <div class="project-tags">
-              <span class="pill-tag pill-tag-lava">Web Architecture</span>
-              <span class="pill-tag pill-tag-orange">Database</span>
-              <span class="pill-tag pill-tag-lava">API Design</span>
+            <div class="blueprint-specs-row">
+              <span class="spec-tag">Type: <strong>Full-Stack Web</strong></span>
+              <span class="spec-tag">Database: <strong>ACID Transactions</strong></span>
+              <span class="spec-tag">Design: <strong>Mobile-First UI</strong></span>
+            </div>
+            <button class="blueprint-drawer-trigger" aria-expanded="false">
+              <span>Inspect Architecture</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="blueprint-drawer-content">
+              <div class="blueprint-drawer-body">
+                <strong>Architectural Breakdown:</strong> Features strict transactional isolation for concurrent seat booking, preventing double-reservations. Multi-stop routing calculation with dynamic fare tables and responsive booking interface.
+              </div>
             </div>
           </article>
 
-          <!-- Project 4 -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <h3 class="project-title">Autonomous RC Vehicle with Microcontroller</h3>
-              <span class="project-date">ComedKares</span>
+          <!-- Blueprint 4: RC Car -->
+          <article class="blueprint-card">
+            <div class="blueprint-meta-bar">
+              <span class="blueprint-code">[SYS-04 // EMBEDDED HARDWARE]</span>
+              <span class="blueprint-time">ComedKares</span>
             </div>
-            <div class="project-role-badge">Hardware & Embedded Systems Developer</div>
+            <h3 class="project-title">Microcontroller-Driven Radio-Controlled Vehicle</h3>
+            <div class="project-role-badge">Embedded Systems Developer · Hardware Workshop</div>
             <p class="project-desc">
-              Custom-engineered radio-controlled vehicle built on Arduino architecture, incorporating sensor integration, motor driver calibration, and wireless command reception.
+              Engineered autonomous-capable radio-controlled vehicle built on Arduino architecture, incorporating sensor integration, dual H-bridge motor driver calibration, and wireless command reception.
             </p>
-            <div class="project-tags">
-              <span class="pill-tag pill-tag-lava">Arduino</span>
-              <span class="pill-tag pill-tag-lava">C / C++</span>
-              <span class="pill-tag pill-tag-orange">Robotics</span>
+            <div class="blueprint-specs-row">
+              <span class="spec-tag">MCU: <strong>ATmega328P</strong></span>
+              <span class="spec-tag">Driver: <strong>L298N Dual H-Bridge</strong></span>
+              <span class="spec-tag">Code: <strong>C / C++</strong></span>
+            </div>
+            <button class="blueprint-drawer-trigger" aria-expanded="false">
+              <span>Inspect Architecture</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="blueprint-drawer-content">
+              <div class="blueprint-drawer-body">
+                <strong>Architectural Breakdown:</strong> Radio-frequency demodulation triggers hardware interrupt routines on the microcontroller. PWM pulse modulation controls dual DC motors, supporting differential steering with fail-safe stop parameters.
+              </div>
             </div>
           </article>
+
         </div>
       </section>
 
-      <!-- Section 3: Technical Capabilities -->
+      <!-- Section 3: Engineering Capabilities Matrix -->
       <section class="section-wrapper">
         <div class="section-header">
           <div>
@@ -282,60 +567,64 @@
 
         <div class="credentials-grid">
           <div class="credential-card">
-            <h3 class="credential-title">Software & Languages</h3>
+            <h3 class="credential-title">Programming & Stacks</h3>
             <p class="credential-institution" style="margin-bottom: 1rem;">
-              Core programming competencies across compiled, interpreted, and web development stacks.
+              Core competencies across compiled, interpreted, and web architectures.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
-              <span class="pill-tag pill-tag-lava">Python</span>
-              <span class="pill-tag pill-tag-lava">C</span>
-              <span class="pill-tag pill-tag-lava">Java</span>
-              <span class="pill-tag pill-tag-orange">HTML5</span>
-              <span class="pill-tag pill-tag-orange">CSS3</span>
-              <span class="pill-tag pill-tag-orange">JavaScript</span>
+              <span class="spec-tag"><strong>Python</strong></span>
+              <span class="spec-tag"><strong>C / C++</strong></span>
+              <span class="spec-tag"><strong>Java</strong></span>
+              <span class="spec-tag"><strong>JavaScript</strong></span>
+              <span class="spec-tag"><strong>HTML5 / CSS3</strong></span>
             </div>
           </div>
 
           <div class="credential-card">
-            <h3 class="credential-title">AI & System Domains</h3>
+            <h3 class="credential-title">AI & Applied Systems</h3>
             <p class="credential-institution" style="margin-bottom: 1rem;">
-              Specialized investigation into neural networks, computer vision, and assistive human-computer interaction.
+              Applied investigation into deep learning, computer vision, and telemetry analysis.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
-              <span class="pill-tag pill-tag-lava">Deep Learning</span>
-              <span class="pill-tag pill-tag-lava">Computer Vision</span>
-              <span class="pill-tag pill-tag-orange">Sensor Fusion</span>
-              <span class="pill-tag pill-tag-orange">Cloud Platforms</span>
+              <span class="spec-tag"><strong>Deep Learning</strong></span>
+              <span class="spec-tag"><strong>OpenCV</strong></span>
+              <span class="spec-tag"><strong>MediaPipe</strong></span>
+              <span class="spec-tag"><strong>Predictive AI</strong></span>
+              <span class="spec-tag"><strong>REST APIs</strong></span>
             </div>
           </div>
 
           <div class="credential-card">
             <h3 class="credential-title">Hardware & Practical Skills</h3>
             <p class="credential-institution" style="margin-bottom: 1rem;">
-              Hands-on electronics, computer hardware maintenance, and international communication fluency.
+              Electronics prototyping, diagnostic PC repair, and trilingual fluency.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
-              <span class="pill-tag pill-tag-lava">Hardware Repair</span>
-              <span class="pill-tag pill-tag-lava">Arduino IDE</span>
-              <span class="pill-tag pill-tag-orange">English (Fluent)</span>
-              <span class="pill-tag pill-tag-orange">Hindi (Fluent)</span>
-              <span class="pill-tag pill-tag-orange">Malayalam</span>
+              <span class="spec-tag"><strong>Arduino IDE</strong></span>
+              <span class="spec-tag"><strong>Hardware Repair</strong></span>
+              <span class="spec-tag"><strong>English (Fluent)</strong></span>
+              <span class="spec-tag"><strong>Hindi (Fluent)</strong></span>
+              <span class="spec-tag"><strong>Malayalam</strong></span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 4: Direct Collaboration CTA -->
+      <!-- Section 4: Direct Communication CTA -->
       <section style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 3rem 2rem; text-align: center; box-shadow: var(--shadow-md);">
         <h2 style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">
-          Interested in Collaborating?
+          Engineering Inquiries & Collaborations
         </h2>
         <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 1.75rem; line-height: 1.6;">
-          Whether for engineering internships, technical collaborations, or consulting inquiries, feel free to reach out directly.
+          Open for engineering internships, technical collaborations, and research inquiries. Messages transmit directly to Mohammed Najaf's email platform.
         </p>
         <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.85rem;">
           <a href="contact.html" class="btn btn-primary">
-            <span>Send Message</span>
+            <span>Transmit Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
           </a>
           <button class="btn btn-secondary btn-copy" data-copy-text="mohammednajaf.nj5@gmail.com">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

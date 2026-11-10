@@ -238,35 +238,87 @@
   });
 
   // ==========================================
-  // 8. Project Category Filter (Vanilla JS with Emil Kowalski transitions)
+  // 8. Interactive Architecture Workbench (Signature Dealt Moment)
   // ==========================================
   document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const workbench = document.getElementById('architecture-workbench');
+    if (workbench) {
+      const tabs = workbench.querySelectorAll('.wb-tab');
+      const panels = workbench.querySelectorAll('.wb-panel');
 
-    filterButtons.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        const filter = btn.getAttribute('data-filter');
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          const targetTab = tab.getAttribute('data-tab');
 
-        projectCards.forEach(function(card) {
-          const category = card.getAttribute('data-category') || '';
-          if (filter === 'all' || category.includes(filter)) {
-            card.style.display = 'flex';
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(10px)';
-            requestAnimationFrame(() => {
-              card.style.transition = 'opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1)';
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
-            });
-          } else {
-            card.style.display = 'none';
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(p => p.classList.remove('active'));
+
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          const activePanel = document.getElementById('panel-' + targetTab);
+          if (activePanel) {
+            activePanel.classList.add('active');
           }
         });
       });
+    }
+
+    // Blueprint Architecture Details Drawer (Expand / Collapse)
+    document.addEventListener('click', function(e) {
+      const trigger = e.target.closest('.blueprint-drawer-trigger');
+      if (trigger) {
+        e.preventDefault();
+        const card = trigger.closest('.blueprint-card, .project-card');
+        const drawer = card ? card.querySelector('.blueprint-drawer-content') : null;
+        if (drawer) {
+          drawer.classList.toggle('is-open');
+          const isOpen = drawer.classList.contains('is-open');
+          trigger.setAttribute('aria-expanded', isOpen);
+          const textSpan = trigger.querySelector('span');
+          if (textSpan) {
+            textSpan.textContent = isOpen ? 'Hide Architecture' : 'Inspect Architecture';
+          }
+        }
+      }
     });
+  });
+
+  // ==========================================
+  // 9. Project Category Filter (Vanilla JS with Emil Kowalski transitions)
+  // ==========================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.blueprint-card, .project-card');
+
+    if (filterButtons.length && projectCards.length) {
+      filterButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const filter = btn.getAttribute('data-filter');
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          projectCards.forEach(function(card) {
+            const category = card.getAttribute('data-category') || '';
+            if (filter === 'all' || category.includes(filter)) {
+              card.style.display = 'flex';
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(10px)';
+              requestAnimationFrame(() => {
+                card.style.transition = 'opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              });
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
   });
 
   // ==========================================
