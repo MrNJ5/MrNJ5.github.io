@@ -138,33 +138,56 @@
   document.addEventListener('DOMContentLoaded', highlightActiveNav);
 
   // ==========================================
-  // 4. Scroll Reveal Animations (IntersectionObserver)
+  // 4. Scroll Reveal Animations (IntersectionObserver & Progressive Enhancement)
   // ==========================================
   document.addEventListener('DOMContentLoaded', function() {
-    // Automatically apply animate-on-scroll class to cards, metrics, and articles
+    // Flag document as JS-ready for progressive enhancement
+    document.documentElement.classList.add('js-ready');
+
     const targetElements = document.querySelectorAll(
-      '.card, .figma-metrics-banner, .project-card, .resume-section, .resume-paper, .biodata-paper, .contact-info-card'
+      '.blueprint-card, .project-card, .foundation-card, .workbench-stage, .section-wrapper, .credential-card, .resume-section, .resume-paper, .biodata-paper, .contact-info-card'
     );
 
-    targetElements.forEach(el => el.classList.add('animate-on-scroll'));
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+
+    targetElements.forEach(function(el) {
+      el.classList.add('animate-on-scroll');
+      
+      // If user prefers reduced motion or element is already in viewport, reveal immediately
+      if (prefersReduced) {
+        el.classList.add('is-visible');
+      } else {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= vh * 0.95) {
+          el.classList.add('is-visible');
+        }
+      }
+    });
+
+    if (prefersReduced) return;
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
+      const observer = new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             obs.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px 40px 0px'
       });
 
-      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+      document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach(function(el) {
+        observer.observe(el);
+      });
     } else {
       // Fallback for older browsers
-      document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('is-visible'));
+      document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+        el.classList.add('is-visible');
+      });
     }
   });
 

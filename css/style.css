@@ -454,26 +454,55 @@ img, svg {
   flex-direction: column;
 }
 
-/* Status indicator badge */
-.status-indicator-badge {
-  display: inline-flex;
 /* ==========================================================================
    Hero Stage & Coordinated Staggered Entrance (Emil Kowalski & Taste-Skill)
+   Resilient: Opacity is 1 by default, animated when motion is enabled.
    ========================================================================== */
 [data-enter] {
-  opacity: 0;
-  transform: translateY(16px);
-  animation: heroEnter 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1;
 }
 
-[data-enter="1"] { animation-delay: 40ms; }
-[data-enter="2"] { animation-delay: 100ms; }
-[data-enter="3"] { animation-delay: 160ms; }
-[data-enter="4"] { animation-delay: 220ms; }
-[data-enter="5"] { animation-delay: 280ms; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-enter] {
+    animation: heroEnter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 
-@keyframes heroEnter {
-  to {
+  [data-enter="1"] { animation-delay: 40ms; }
+  [data-enter="2"] { animation-delay: 100ms; }
+  [data-enter="3"] { animation-delay: 160ms; }
+  [data-enter="4"] { animation-delay: 220ms; }
+  [data-enter="5"] { animation-delay: 280ms; }
+
+  @keyframes heroEnter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ==========================================================================
+   Scroll-Reveal Entrance Animations (IntersectionObserver)
+   Safe default (opacity: 1), smoothly reveals on scroll
+   ========================================================================== */
+.animate-on-scroll {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-ready .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .js-ready .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -858,7 +887,7 @@ img, svg {
 }
 
 .blueprint-drawer-content.is-open {
-  max-height: 250px;
+  max-height: 500px;
   opacity: 1;
   margin-top: 0.85rem;
 }
@@ -1724,8 +1753,29 @@ textarea.form-control {
   }
 
   .project-card,
+  .blueprint-card,
   .credential-card,
+  .foundation-card,
   .contact-info-card {
     padding: 1.35rem 1.15rem;
+  }
+
+  .wb-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .wb-panel {
+    padding: 1rem 0.85rem;
+  }
+
+  .wb-tab {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .blueprint-specs-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
