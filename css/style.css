@@ -142,6 +142,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -380,6 +381,8 @@ img, svg {
   line-height: 1.25;
   white-space: nowrap;
   user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   /* Specific transitions, never 'all' */
   transition: transform var(--duration-fast) var(--ease-out),
               background-color var(--duration-fast) var(--ease-out),
@@ -422,14 +425,15 @@ img, svg {
 }
 
 .btn-outline {
-  background: transparent;
-  border-color: var(--border-accent);
+  background: rgba(255, 42, 46, 0.05);
+  border: 1px solid var(--border-accent);
   color: var(--lava-bright) !important;
 }
 
 .btn-outline:hover {
-  background: var(--pill-lava-bg);
+  background: rgba(255, 42, 46, 0.14);
   border-color: var(--lava-bright);
+  color: #ffffff !important;
   transform: translateY(-2px);
 }
 
@@ -447,11 +451,23 @@ img, svg {
   gap: 3.5rem;
   align-items: center;
   margin-bottom: 4.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .figma-hero-left {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.figma-hero-right {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -510,21 +526,25 @@ img, svg {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 5.5vw, 4.4rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.05;
   letter-spacing: -0.035em;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-discipline {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
   font-weight: 600;
   color: var(--lava-bright);
   letter-spacing: -0.015em;
   margin-bottom: 1.25rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-lead {
@@ -533,6 +553,9 @@ img, svg {
   line-height: 1.65;
   margin-bottom: 2rem;
   max-width: 560px;
+  width: 100%;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .hero-cta-group {
@@ -541,6 +564,7 @@ img, svg {
   flex-wrap: wrap;
   gap: 0.85rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .hero-meta-strip {
@@ -552,6 +576,7 @@ img, svg {
   border-top: 1px solid var(--border-subtle);
   font-size: 0.88rem;
   color: var(--text-muted);
+  width: 100%;
 }
 
 .hero-meta-item strong {
@@ -570,6 +595,9 @@ img, svg {
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   transition: border-color var(--duration-fast) var(--ease-out),
               box-shadow var(--duration-fast) var(--ease-out);
 }
@@ -583,7 +611,10 @@ img, svg {
   background: var(--bg-surface-elevated);
   border-bottom: 1px solid var(--border-subtle);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  width: 100%;
+  max-width: 100%;
 }
 
 .workbench-nav::-webkit-scrollbar {
@@ -604,6 +635,10 @@ img, svg {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: color var(--duration-fast) var(--ease-out),
               border-color var(--duration-fast) var(--ease-out),
               background-color var(--duration-fast) var(--ease-out);
@@ -623,6 +658,9 @@ img, svg {
 .wb-panel {
   padding: 1.5rem;
   display: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .wb-panel.active {
@@ -642,11 +680,19 @@ img, svg {
   padding: 1rem 1.25rem;
   margin-bottom: 1.25rem;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pipeline-diagram {
   width: 100%;
-  height: 90px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 460 / 90;
+  display: block;
 }
 
 .flow-line {
@@ -723,8 +769,14 @@ img, svg {
   color: var(--text-muted);
   margin-top: 1rem;
   display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.wb-telemetry-note svg {
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
 /* ==========================================================================
@@ -1557,23 +1609,25 @@ textarea.form-control {
    ========================================================================== */
 @media (max-width: 968px) {
   .figma-hero-stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.75rem;
+    width: 100%;
   }
 
   .projects-grid,
   .foundation-matrix,
   .credentials-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
   }
 }
 
 /* ==========================================================================
-   Responsive Adaptations (Mobile <= 768px)
+   Responsive Adaptations (Tablet / Large Mobile <= 768px)
    Touch-Friendly: 48px tap targets, drawer navigation, relative padding
    ========================================================================== */
 @media (max-width: 768px) {
@@ -1646,8 +1700,20 @@ textarea.form-control {
     min-height: 48px;
   }
 
+  .hero-meta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding-top: 1.25rem;
+  }
+
+  .hero-meta-item {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
 
@@ -1685,7 +1751,7 @@ textarea.form-control {
   }
 
   .biodata-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     row-gap: 0.25rem;
   }
 
@@ -1731,6 +1797,62 @@ textarea.form-control {
 }
 
 /* ==========================================================================
+   Medium Mobile Optimization (<= 580px)
+   ========================================================================== */
+@media (max-width: 580px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  .wb-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.55rem;
+  }
+
+  .wb-metric-box:last-child {
+    grid-column: span 2;
+  }
+
+  .wb-metric-box {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .wb-metric-label {
+    font-size: 0.68rem;
+  }
+
+  .wb-metric-value {
+    font-size: 1.05rem;
+  }
+
+  .foundation-record-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .foundation-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .blueprint-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+/* ==========================================================================
    Small Mobile Optimization (<= 480px)
    ========================================================================== */
 @media (max-width: 480px) {
@@ -1739,17 +1861,7 @@ textarea.form-control {
   }
 
   .hero-headline {
-    font-size: clamp(2.2rem, 9vw, 2.75rem);
-  }
-
-  .hero-cta-group {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-cta-group .btn {
-    width: 100%;
-    min-height: 48px;
+    font-size: clamp(2rem, 8.5vw, 2.6rem);
   }
 
   .project-card,
@@ -1757,25 +1869,19 @@ textarea.form-control {
   .credential-card,
   .foundation-card,
   .contact-info-card {
-    padding: 1.35rem 1.15rem;
-  }
-
-  .wb-metrics-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+    padding: 1.25rem 1rem;
   }
 
   .wb-panel {
-    padding: 1rem 0.85rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .wb-pipeline-view {
+    padding: 0.75rem 0.65rem;
   }
 
   .wb-tab {
-    padding: 0.75rem 0.85rem;
+    padding: 0.7rem 0.8rem;
     font-size: 0.78rem;
-  }
-
-  .blueprint-specs-row {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
